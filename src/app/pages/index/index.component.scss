@@ -1,0 +1,14 @@
+:host {
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 1em;
+
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}
