@@ -1,62 +1,74 @@
-<form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
+<main>
 
-    <label for="name">
-        Name:
-        <input type="text" name="name" formControlName="name">
-        @if(formDir.submitted && name?.invalid) { 
-            @if(name?.errors?.['required']) { <p style="color: red;"> Preencha o campo. </p> }
-            @if(name?.errors?.['invalidName']) { <p style="color: red;"> O nome tem que ter entre 5 a 10 caracteres. </p> }
-        }
-    </label>
-
-    <label for="email">
-        E-mail
-        <input type="text" name="email" formControlName="email">
-        @if(formDir.submitted && email?.invalid) { 
-            @if(email?.errors?.['required']) { <p style="color: red;"> Preencha o campo. </p> }
-            @if(email?.errors?.['invalidEmail']) { <p style="color: red;"> O email deve ser Gmail. </p> }
-        }
-    </label>
-
-    <label for="password">
-        Password:
-        <input type="text" name="password" formControlName="password">
-        @if(formDir.submitted && password?.invalid) { 
-            @if(password?.errors?.['required']) { <p style="color: red;"> Preencha o campo. </p> }
-            @if(password?.errors?.['invalidPassword']) { <p style="color: red;"> O password deve estar entre 5 a 10 caracteres </p> }
-        }
-    </label>
-
-    <label for="gender">
-        Gender:
-        @for(item of genders(); track item) {
-            <input type="radio" formControlName="gender" [value]="item.gender.value">{{ item.gender.title }}
-        }
-        @if(formDir.submitted && gender?.invalid) { 
-            @if(gender?.errors?.['required']) { <p style="color: red;"> Selecione o gênero. </p> }
-        }
-    </label>
-
-    <label for="tec">
-        Tecs:
-        @for(item of tecs(); track item) {
-            <input type="checkbox" [value]="item.tec.value" (change)="onTecChange($event)"> {{ item.tec.title }}
-        }
-        @if(formDir.submitted && tec?.invalid) { 
-            @if(tec?.errors?.['required']) { <p style="color: red;"> Selecione pelo menos um Tópico. </p> }
-        }
-    </label>
-
-    <div class="values">
-        <ul>
-            <li>{{ RegisterForm.get('name')?.value }}</li>
-            <li>{{ RegisterForm.get('email')?.value }}</li>
-            <li>{{ RegisterForm.get('password')?.value }}</li>
-            <li>{{ RegisterForm.get('gender')?.value }}</li>
-            <li>{{RegisterForm.get('tec')?.value | json }}</li>
-        </ul>
-
-        <p>{{ RegisterForm.valid }}</p>
-        <button>Enviar</button>
+    <div class="content-form">
+        <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
+            <h1>Registrar-se</h1>
+            <div class="left-content">
+                <label for="name">
+                    Name:
+                    <input type="text" name="name" formControlName="name" placeholder="Name">
+                    <div class="error">
+                        @if(formDir.submitted && name?.invalid) {
+                            @if(name?.errors?.['required']) { <p > Preencha o campo. </p> }
+                            @if(name?.errors?.['invalidName']) { <p> O nome tem que ter entre 5 a 10 caracteres. </p> }
+                        }
+                    </div>
+                </label>
+                <label for="email">
+                    E-mail:
+                    <input type="text" name="email" formControlName="email" placeholder="E-mail">
+                    <div class="error">
+                        @if(formDir.submitted && email?.invalid) {
+                            @if(email?.errors?.['required']) { <p> Preencha o campo. </p> }
+                            @if(email?.errors?.['invalidEmail']) { <p> O email deve ser Gmail. </p> }
+                        }
+                    </div>
+                </label>
+            </div>
+        
+            <label for="password">
+                Password:
+                <input type="text" name="password" formControlName="password" placeholder="Password">
+                <div class="error">
+                    @if(formDir.submitted && password?.invalid) {
+                        @if(password?.errors?.['required']) { <p> Preencha o campo. </p> }
+                        @if(password?.errors?.['invalidPassword']) { <p> O password deve estar entre 5 a 10 caracteres </p> }
+                    }
+                </div>
+            </label>
+        
+            <label for="gender">
+                Gender:
+                <div class="gender-options">
+                    @for(item of genders(); track item) {
+                        <input type="radio" formControlName="gender" [value]="item.gender.value">{{ item.gender.title }}
+                    }
+                </div>
+                <div class="error">
+                    @if(formDir.submitted && gender?.invalid) {
+                        @if(gender?.errors?.['required']) { <p> Selecione o gênero. </p> }
+                    }
+                </div>
+            </label>
+        
+            <label for="tec">
+                Tecs:
+                <div class="tec-options">
+                    @for(item of tecs(); track item) {
+                        <input type="checkbox" [value]="item.tec.value" (change)="onTecChange($event)"> {{ item.tec.title }}
+                    }
+                </div>
+                <div class="error">
+                    @if(formDir.submitted && tec?.invalid) {
+                        @if(tec?.errors?.['required']) { <p> Selecione pelo menos um Tópico. </p> }
+                    }
+                </div>
+            </label>
+                <button class="btn">Enviar</button>
+        </form>
     </div>
-</form>
+
+    <div class="bg-img">
+
+    </div>
+</main>
