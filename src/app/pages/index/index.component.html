@@ -1,9 +1,6 @@
 <main>
-
-    <div class="content-form">
         <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
             <h1>Registrar-se</h1>
-            <div class="left-content">
                 <label for="name">
                     Name:
                     <input type="text" name="name" formControlName="name" placeholder="Name">
@@ -24,7 +21,6 @@
                         }
                     </div>
                 </label>
-            </div>
         
             <label for="password">
                 Password:
@@ -39,11 +35,9 @@
         
             <label for="gender">
                 Gender:
-                <div class="gender-options">
                     @for(item of genders(); track item) {
                         <input type="radio" formControlName="gender" [value]="item.gender.value">{{ item.gender.title }}
                     }
-                </div>
                 <div class="error">
                     @if(formDir.submitted && gender?.invalid) {
                         @if(gender?.errors?.['required']) { <p> Selecione o gênero. </p> }
@@ -53,11 +47,9 @@
         
             <label for="tec">
                 Tecs:
-                <div class="tec-options">
                     @for(item of tecs(); track item) {
                         <input type="checkbox" [value]="item.tec.value" (change)="onTecChange($event)"> {{ item.tec.title }}
                     }
-                </div>
                 <div class="error">
                     @if(formDir.submitted && tec?.invalid) {
                         @if(tec?.errors?.['required']) { <p> Selecione pelo menos um Tópico. </p> }
@@ -66,9 +58,4 @@
             </label>
                 <button class="btn">Enviar</button>
         </form>
-    </div>
-
-    <div class="bg-img">
-
-    </div>
 </main>
