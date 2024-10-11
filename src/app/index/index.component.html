@@ -1,6 +1,13 @@
 <main>
         <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
-            <h1>Registrar-se</h1>
+
+            <header class="header-form">
+                <span class="material-symbols-outlined">
+                    app_registration
+                </span>
+                <h1>Register</h1>
+            </header>
+
                 <label for="name">
                     Name:
                     <input type="text" name="name" formControlName="name" placeholder="Name">
@@ -35,9 +42,12 @@
         
             <label for="gender">
                 Gender:
-                    @for(item of genders(); track item) {
-                        <input type="radio" formControlName="gender" [value]="item.gender.value">{{ item.gender.title }}
-                    }
+                    <div class="row">
+                        @for(item of genders(); track item) {
+                            <div class="flex-input"><input type="radio" formControlName="gender" [id]="item.gender.value" [value]="item.gender.value">
+                            {{ item.gender.title }}</div>
+                        }
+                    </div>
                 <div class="error">
                     @if(formDir.submitted && gender?.invalid) {
                         @if(gender?.errors?.['required']) { <p> Selecione o gênero. </p> }
@@ -47,15 +57,21 @@
         
             <label for="tec">
                 Tecs:
-                    @for(item of tecs(); track item) {
-                        <input type="checkbox" [value]="item.tec.value" (change)="onTecChange($event)"> {{ item.tec.title }}
-                    }
+                    <div class="row">
+                        @for(item of tecs(); track item) {
+                            <div class="flex-input"><input type="checkbox" [value]="item.tec.value" (change)="onTecChange($event)">
+                            {{ item.tec.title }}</div>
+                        }
+                    </div>
                 <div class="error">
                     @if(formDir.submitted && tec?.invalid) {
                         @if(tec?.errors?.['required']) { <p> Selecione pelo menos um Tópico. </p> }
                     }
                 </div>
             </label>
-                <button class="btn">Enviar</button>
+            <div class="footer-form">
+                <span>have an account? <button class="btn btn-secondary">Login</button></span>
+            </div>
+            <button class="btn">Register now</button>
         </form>
 </main>

@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormArray, Validators, FormGroup } from '@angular/forms';
-import { nameValidator, emailValidator, passwordValidator, genderValidator } from '../../validators/register.validators';
-import IGender from '../../interface/gender.interface';
-import ITec from '../../interface/tec.interface';
+import { nameValidator, emailValidator, passwordValidator, genderValidator } from '../validators/register.validators';
+import IGender from '../interface/gender.interface';
+import ITec from '../interface/tec.interface';
 
 
 @Component({

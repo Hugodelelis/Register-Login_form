@@ -1,0 +1,40 @@
+input[type='text'] {
+    padding: 0.8em 1em;
+    border-radius: 1em;
+    background: linear-gradient(135deg, #A8E6FF, #9eecec, #D3F8FF);
+    border: none;
+        &:focus {
+            outline: solid black 0.1em;
+        }
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border: 0.15em solid #FF7E5F;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+
+    &:checked {
+        background: linear-gradient(135deg, #FF7E5F, #FFB88C, #FFC371);
+        border-color: #FF7E5F;
+    }
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    border: 0.1em solid #FF7E5F;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+
+    &:checked {
+        background: linear-gradient(135deg, #FF7E5F, #FFB88C, #FFC371);
+        border-color: #FF7E5F;
+    }
+}
