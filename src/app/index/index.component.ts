@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, FormArray, Validators, FormGroup } fr
 import { nameValidator, emailValidator, passwordValidator, genderValidator } from '../validators/register.validators';
 import IGender from '../interface/gender.interface';
 import ITec from '../interface/tec.interface';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -28,6 +29,24 @@ export class IndexComponent implements OnInit {
     })
   }
 
+  onSubmit(): void {
+    if (this.RegisterForm.valid) {
+      Swal.fire({
+        title: "Good job!",
+        text: "Account created successfully!",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
+      });
+    } else {
+      console.log(this.RegisterForm.value)
+      console.log("Falha ao enviar")
+    }
+  }
+
 onTecChange(event: any) {
     const formArray: FormArray = this.RegisterForm.get('tec') as FormArray;
 
@@ -36,16 +55,6 @@ onTecChange(event: any) {
     } else {
       const index = formArray.controls.findIndex(x => x.value === event.target.value);
       formArray.removeAt(index);
-    }
-  }
-
-  onSubmit(): void {
-    if (this.RegisterForm.valid) {
-      console.log("Form enviado");
-      console.log(this.RegisterForm.value)
-    } else {
-      console.log(this.RegisterForm.value)
-      console.log("Falha ao enviar")
     }
   }
 

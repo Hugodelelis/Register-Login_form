@@ -31,7 +31,7 @@
         
             <label for="password">
                 Password:
-                <input type="text" name="password" formControlName="password" placeholder="Password">
+                <input type="password" name="password" formControlName="password" placeholder="Password">
                 <div class="error">
                     @if(formDir.submitted && password?.invalid) {
                         @if(password?.errors?.['required']) { <p> Preencha o campo. </p> }
