@@ -13,8 +13,8 @@ import {
   passwordValidator,
   genderValidator,
 } from '../../validators/cont.validators';
-import IGender from '../../interface/gender.interface';
-import ITec from '../../interface/tec.interface';
+import IGender from '../../interfaces/gender.interface';
+import ITec from '../../interfaces/tec.interface';
 import Swal from 'sweetalert2';
 import { Router, RouterModule } from '@angular/router';
 
