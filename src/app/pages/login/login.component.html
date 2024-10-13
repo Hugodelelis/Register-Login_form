@@ -1,0 +1,37 @@
+<main>
+    <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
+
+        <header class="header-form">
+            <span class="material-icons">
+                input
+            </span>
+            <h1>Login</h1>
+        </header>
+            <label for="email">
+                E-mail:
+                <input type="text" name="email" formControlName="email" placeholder="E-mail">
+                <div class="error">
+                    @if(formDir.submitted && email?.invalid) {
+                        @if(email?.errors?.['required']) { <p> Preencha o campo. </p> }
+                        @if(email?.errors?.['invalidEmail']) { <p> O email deve ser Gmail. </p> }
+                    }
+                </div>
+            </label>
+    
+        <label for="password">
+            Password:
+            <input type="password" name="password" formControlName="password" placeholder="Password">
+            <div class="error">
+                @if(formDir.submitted && password?.invalid) {
+                    @if(password?.errors?.['required']) { <p> Preencha o campo. </p> }
+                    @if(password?.errors?.['invalidPassword']) { <p> O password deve estar entre 5 a 10 caracteres </p> }
+                }
+            </div>
+        </label>
+    
+        <div class="footer-form">
+            <span>Don't have an account? <a class="btn btn-secondary" routerLink="/">Register</a></span>
+        </div>
+        <button class="btn">Login now</button>
+    </form>
+</main>

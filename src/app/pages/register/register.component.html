@@ -2,9 +2,7 @@
         <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" #formDir = ngForm>
 
             <header class="header-form">
-                <span class="material-symbols-outlined">
-                    app_registration
-                </span>
+                <span class="material-icons">app_registration</span>
                 <h1>Register</h1>
             </header>
 
@@ -70,7 +68,7 @@
                 </div>
             </label>
             <div class="footer-form">
-                <span>have an account? <button class="btn btn-secondary">Login</button></span>
+                <span>have an account? <a class="btn btn-secondary" routerLink="/login">Login</a></span>
             </div>
             <button class="btn">Register now</button>
         </form>
