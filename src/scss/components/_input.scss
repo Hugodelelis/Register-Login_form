@@ -1,10 +1,10 @@
 input[type='text'], input[type='password'] {
     padding: 0.8em 1em;
     border-radius: 1em;
-    background: linear-gradient(135deg, #A8E6FF, #9eecec, #D3F8FF);
+    background: var(--gradient-blue);
     border: none;
         &:focus {
-            outline: solid black 0.1em;
+            outline: solid var(--black-010) 0.1em;
         }
 }
 
@@ -12,15 +12,15 @@ input[type="radio"] {
     appearance: none;
     width: 1.2em;
     height: 1.2em;
-    border: 0.15em solid #FF7E5F;
+    border: 0.15em solid var(--orange-010);
     border-radius: 50%;
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease; 
 
     &:checked {
-        background: linear-gradient(135deg, #FF7E5F, #FFB88C, #FFC371);
-        border-color: #FF7E5F;
+        background: var(--gradient-orange);
+        border-color: var(--orange-010);
     }
 }
 
@@ -28,13 +28,13 @@ input[type="checkbox"] {
     appearance: none;
     width: 1.2em;
     height: 1.2em;
-    border: 0.1em solid #FF7E5F;
+    border: 0.1em solid  var(--orange-010);
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease; 
 
     &:checked {
-        background: linear-gradient(135deg, #FF7E5F, #FFB88C, #FFC371);
-        border-color: #FF7E5F;
+        background: var(--gradient-orange);
+        border-color:  var(--orange-010);
     }
 }

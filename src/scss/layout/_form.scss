@@ -24,7 +24,7 @@ main{
             }
 
             span {
-                background: linear-gradient(135deg, #FF7E5F, #FFB88C, #FFC371);
+                background: var(--gradient-orange);
                 padding: 0.8em;
                 border-radius: 50%;
                 font-size: 1.6em;
@@ -63,7 +63,7 @@ main{
         }
 
         p {
-            color: red;
+            color: var(--red-010);
             font-weight: 600;
             font-size: 0.8em;
         }
