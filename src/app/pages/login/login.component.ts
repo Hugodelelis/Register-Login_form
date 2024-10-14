@@ -12,6 +12,7 @@ import {
 } from '../../validators/account.validators';
 import Swal from 'sweetalert2';
 import { RouterModule } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   #fb = inject(FormBuilder);
+  #authUser = inject(AuthenticationService)
 
   LoginForm!: FormGroup;
 
@@ -34,20 +36,24 @@ export class LoginComponent implements OnInit {
   // funcs
 
   onSubmit(): void {
+    const loginData = this.LoginForm.value;
+  
     if (this.LoginForm.valid) {
-      Swal.fire({
-        title: 'Good job!',
-        text: 'Login successfully!',
-        icon: 'success',
-        confirmButtonText: 'OK',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.reload();
-        }
-      });
-    } else {
-      console.log(this.LoginForm.value);
-      console.log('Falha ao enviar');
+      const userExists = this.#authUser.getUser(loginData.email, loginData.password);
+  
+      if (userExists) {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Login successful!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        }) } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email does not exist or password is incorrect!',
+        });
+      }
     }
   }
 

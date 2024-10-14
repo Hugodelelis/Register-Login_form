@@ -43,22 +43,27 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const userData = this.RegisterForm.value;
+  
     if (this.RegisterForm.valid) {
-      const userData = this.RegisterForm.value
-      this.#authUser.saveUser(userData);
-      Swal.fire({
-        title: 'Good job!',
-        text: 'Account created successfully!',
-        icon: 'success',
-        confirmButtonText: 'OK',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/login']);
-        }
-      });
-    } else {
-      console.log(this.RegisterForm.value);
-      console.log('Falha ao enviar');
+      const userAdded = this.#authUser.saveUser(userData);
+  
+      if (!userAdded) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Email already exists!",
+        });
+      } else {
+        Swal.fire({
+          title: 'Good job!',
+          text: 'Account created successfully!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        }).then(() => {
+            this.router.navigate(['/login']);
+        });
+      }
     }
   }
 
