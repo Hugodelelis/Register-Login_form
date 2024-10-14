@@ -12,11 +12,12 @@ import {
   emailValidator,
   passwordValidator,
   genderValidator,
-} from '../../validators/cont.validators';
+} from '../../validators/account.validators';
 import IGender from '../../interfaces/gender.interface';
 import ITec from '../../interfaces/tec.interface';
 import Swal from 'sweetalert2';
 import { Router, RouterModule } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-index',
@@ -26,7 +27,8 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   #fb = inject(FormBuilder);
-  router = inject(Router)
+  router = inject(Router);
+  #authUser = inject(AuthenticationService)
 
   RegisterForm!: FormGroup;
 
@@ -42,6 +44,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.RegisterForm.valid) {
+      const userData = this.RegisterForm.value
+      this.#authUser.saveUser(userData);
       Swal.fire({
         title: 'Good job!',
         text: 'Account created successfully!',

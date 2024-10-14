@@ -9,7 +9,7 @@ import {
 import {
   emailValidator,
   passwordValidator,
-} from '../../validators/cont.validators';
+} from '../../validators/account.validators';
 import Swal from 'sweetalert2';
 import { RouterModule } from '@angular/router';
 
