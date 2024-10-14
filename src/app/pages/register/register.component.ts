@@ -71,6 +71,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  passwordVisible = false;
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
   // declarations
 
   public genders = signal<IGender[]>([

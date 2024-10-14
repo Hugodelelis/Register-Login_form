@@ -1,4 +1,4 @@
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], .password-container {
     padding: 0.8em 1em;
     border-radius: 1em;
     background: var(--gradient-blue);
@@ -7,6 +7,37 @@ input[type='text'], input[type='password'] {
             outline: solid var(--black-010) 0.1em;
         }
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #D3F8FF inset !important;
+}
+
+.password-container {
+    padding: 0;
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+
+    input[type='text'], 
+    input[type='password'] {
+        width: 90%;
+        height: 100%;
+    }
+
+    &:focus-within {
+        outline: solid var(--black-010) 0.09em; 
+    }
+
+    input[type='password']:focus, 
+    input[type='text']:focus {
+        outline: none;
+    }
+
+    .toggle-password:focus {
+        outline: none;
+    }
+}
+
 
 input[type="radio"] {
     appearance: none;

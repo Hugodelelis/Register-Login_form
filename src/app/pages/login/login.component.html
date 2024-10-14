@@ -18,16 +18,34 @@
                 </div>
             </label>
     
-        <label for="password">
-            Password:
-            <input type="password" name="password" formControlName="password" placeholder="Password">
-            <div class="error">
-                @if(formDir.submitted && password?.invalid) {
-                    @if(password?.errors?.['required']) { <p> Preencha o campo. </p> }
-                    @if(password?.errors?.['invalidPassword']) { <p> O password deve estar entre 5 a 10 caracteres </p> }
-                }
-            </div>
-        </label>
+            <label for="password">
+                Password:
+                <div class="password-container">
+                    <input 
+                        [type]="passwordVisible ? 'text' : 'password'" 
+                        name="password" 
+                        formControlName="password" 
+                        placeholder="Password">
+                    
+                    <button type="button" (click)="togglePasswordVisibility()" class="btn-terciary">
+                        @if(!passwordVisible) {
+                            <span class="material-icons">
+                            visibility
+                            </span>
+                        } @else {
+                            <span class="material-icons">
+                                visibility_off
+                            </span>
+                        }
+                    </button>
+                </div>
+                <div class="error">
+                    @if(formDir.submitted && password?.invalid) {
+                        @if(password?.errors?.['required']) { <p> Preencha o campo. </p> }
+                        @if(password?.errors?.['invalidPassword']) { <p> O password deve estar entre 5 a 10 caracteres </p> }
+                    }
+                </div>
+            </label>
     
         <div class="footer-form">
             <span>Don't have an account? <a class="btn btn-secondary" routerLink="/">Register</a></span>

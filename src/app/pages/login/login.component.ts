@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // funcs
+
   onSubmit(): void {
     if (this.LoginForm.valid) {
       Swal.fire({
@@ -48,6 +50,14 @@ export class LoginComponent implements OnInit {
       console.log('Falha ao enviar');
     }
   }
+
+  passwordVisible = false;
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  // declarations
 
   get password() {
     return this.LoginForm.get('password');
