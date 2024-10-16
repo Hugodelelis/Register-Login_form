@@ -1,10 +1,11 @@
 input[type='text'], input[type='password'], .password-container {
     padding: 0.8em 1em;
     border-radius: 1em;
-    background: var(--gradient-blue);
-    border: none;
+    border: 2px solid var(--orange-010);
+    transition: 0.4s ease all;
         &:focus {
-            outline: solid var(--black-010) 0.1em;
+            border: 2px solid var(--black-010);
+            outline: none;
         }
 }
 
@@ -22,11 +23,12 @@ input[type='text'], input[type='password'], .password-container {
         width: 90%;
         height: 100%;
         border-radius: 1em 0 0 1em;
-        background-color: none !important;
+        border: none !important;
     }
 
     &:focus-within {
-        outline: solid var(--black-010) 0.09em; 
+        border: 2px solid var(--black-010);
+        outline: none;
     }
 
     input[type='password']:focus, 
@@ -38,7 +40,6 @@ input[type='text'], input[type='password'], .password-container {
         outline: none;
     }
 }
-
 
 input[type="radio"] {
     appearance: none;
@@ -69,4 +70,17 @@ input[type="checkbox"] {
         background: var(--gradient-orange);
         border-color:  var(--orange-010);
     }
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white-010) inset !important;
+    -webkit-text-fill-color: var(--black-010) !important;
+}
+
+input:-moz-autofill {
+    box-shadow: 0 0 0px 1000px var(--white-010) inset !important;
+}
+
+input:-ms-autofill {
+    box-shadow: 0 0 0px 1000px var(--white-010) inset !important;
 }
