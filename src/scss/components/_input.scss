@@ -2,6 +2,7 @@ input[type='text'], input[type='password'], .password-container {
     padding: 0.8em 1em;
     border: 2px solid var(--orange-010);
     transition: 0.4s ease all;
+    
         &:focus {
             border: 2px solid var(--black-010);
             outline: none;
@@ -9,18 +10,17 @@ input[type='text'], input[type='password'], .password-container {
 }
 
 .password-container {
-    padding: 0;
+    padding: 0.4em 0.5em;
+    height: 2.5em;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 0.5em;
-    gap: 0.5em;
-    width: 100%;
 
     input[type='text'], 
     input[type='password'] {
         width: 90%;
         height: 100%;
+        padding: 0 !important;
         border: none !important;
     }
 

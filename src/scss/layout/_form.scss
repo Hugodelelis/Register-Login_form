@@ -12,6 +12,7 @@ main{
         display: flex;
         justify-content: center;
         flex-direction: column;
+        color: var(--gray-010);
 
         .header-form {
             display: flex;
@@ -25,6 +26,7 @@ main{
 
             span {
                 background: var(--gradient-orange);
+                color: var(--black-010);
                 padding: 0.8em;
                 border-radius: 50%;
                 font-size: 1.6em;
