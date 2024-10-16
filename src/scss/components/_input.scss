@@ -61,7 +61,8 @@ input[type="checkbox"] {
     appearance: none;
     width: 1.2em;
     height: 1.2em;
-    border: 0.1em solid  var(--orange-010);
+    border: 0.15em solid  var(--orange-010);
+    border-radius: 20%;
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease; 

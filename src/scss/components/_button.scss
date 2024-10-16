@@ -1,6 +1,6 @@
 .btn {
-    background: var(--gradient-blue);
-    color: var(--black-010);
+    background-color: var(--black-010);
+    color: var(--white-010);
     padding: 0.8em 1em;
     border: none;
     border-radius: 0.5em;
@@ -9,13 +9,15 @@
     transition: 0.4s ease;
 
     &:hover {
-        background: var(--blue-010);
+        background-color: transparent;
+        color: var(--black-010);
+        outline: 1px solid var(--black-010);
     }
 }
 
 .btn-secondary {
     padding: 0.2em 0.5em;
-    background: var(--black-010);
+    background-color: var(--black-010);
     color: var(--white-010);
     border: 1px solid var(--black-010);
     transition: 0.4s ease;
